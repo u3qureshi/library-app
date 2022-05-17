@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Maitree:wght@200&family=Permanent+Marker&family=Text+Me+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Library To-Do</title>
+</head>
+
+<body>
+    <div class="main-title">
+        <img src="./images/books-svgrepo-com.svg" alt="BookShelf">
+        <h1>My<span>Library</span></h1>
+    </div>
+    <form data-multi-step-form class="multi-step-form">
+        <div class="card">
+            <h3 main-subtitle>Add New Book</h3>
+            <div class="card-group">
+                <label for="book-title"><span>*</span>Book Title</label>
+                <input type="text" name="book-title" id="book-title" required>
+            </div>
+            <div class="card-group">
+                <label for="book-author"><span>*</span>Book Author</label>
+                <input type="text" name="book-author" id="book-author" required>
+            </div>
+            <div class="card-group">
+                <label for="book-pages"><span>*</span>Number of Pages</label>
+                <input type="number" min="1" max="50000" maxlength="5" name="book-pages" id="book-pages" required>
+            </div>
+            <div class="card-group toggle-group">
+                <label for="switch-input">READ?</label>
+                <label class="switch">
+                    <input class="switch-input" type="checkbox" />
+                    <span class="switch-label" data-on="YES" data-off="NO"></span> 
+                    <span class="switch-handle"></span> 
+                </label>
+            </div>
+            <button class="add-button" style="vertical-align:middle" type="button"><span>ADD BOOK</span></button>
+        </div>
+    </form>
+
+    <table class="table table-striped mt-5">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Read</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="book-list"></tbody>
+    </table>
+
+
+
+
+
+
+    <h5 id="copyright">
+        Copyright ⓒ UsmanQureshi
+        <a href="https://github.com/u3qureshi/jurassic-park-signup-form" target="_blank" class="fa fa-github" style="font-size: 1.3em;"></a>
+    </h5>
+
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
