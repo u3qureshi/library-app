@@ -38,10 +38,25 @@ class UI {
             <div class="Title">Author: ${bookObject.bookAuthor}</div>
             <div class="Title">Pages: ${bookObject.pages}</div>
             <div class="Read">Read: ${bookObject.isRead}</div>
-            <button>X</button>
+            <button class="delete-button">X</button>
         `;
 
         bookContainer.appendChild(bookItem);
+    }
+
+    //clear and reset fields on the form when submit is pressed
+    static clearFormFields() {
+        document.querySelector('#book-title').value = '';
+        document.querySelector('#book-author').value = '';
+        document.querySelector('#book-pages').value = '';
+        document.querySelector('#toggleButton').value = 'NO';
+    }
+
+    static deleteBookFromList(targetElement) {
+        if (targetElement.classList.contains('delete-button')) {
+            //get parent of the delete button
+            targetElement.parentElement.remove();
+        }
     }
 
 }
@@ -57,22 +72,39 @@ document.querySelector('.book-form').addEventListener('submit', (e) => {
     e.preventDefault();
 
     //Get all book forms values
-    const bookTitle = document.querySelector('#book-title').value;
-    const bookAuthor = document.querySelector('#book-author').value;
-    const bookPages = document.querySelector('#book-pages').value;
-    let bookIsRead = document.querySelector('.switch-input').value;
+    const bookTitle = document.querySelector('#book-title');
+    const bookAuthor = document.querySelector('#book-author');
+    const bookPages = document.querySelector('#book-pages');
+    let bookIsRead = document.querySelector('#toggleButton');
 
-    let isRead = false;
-    if (bookIsRead.toLowerCase() == 'on')
-        isRead = true;
+    let isRead = '';
+    if (bookIsRead.value == 'YES')
+        isRead = '✔';
     else
-        isRead = false;
+        isRead = '✘';
 
     //Instantiate/create a new book object
-    const newBook = new Book(bookTitle, bookAuthor, bookPages, isRead);
+    const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, isRead);
 
     //Simply add new book to the UI
     UI.addBookToList(newBook);
+
+    //Clear and reset fields
+    UI.clearFormFields();
+
 });
 
 // Event - Remove book
+document.querySelector('.book-container').addEventListener('click', e => {
+    UI.deleteBookFromList(e.target);
+});
+
+//Toggle button function
+function buttonToggle() {
+    var toggle = document.getElementById("toggleButton");
+    if (toggle.value == "YES") {
+        toggle.value = "NO";
+    } else if (toggle.value == "NO") {
+        toggle.value = "YES";
+    }
+}

@@ -32,12 +32,8 @@
                 <input type="number" min="1" max="50000" maxlength="5" name="book-pages" id="book-pages" required>
             </div>
             <div class="card-group toggle-group">
-                <label for="switch-input">READ?</label>
-                <label class="switch">
-                    <input class="switch-input" type="checkbox" />
-                    <span class="switch-label" data-on="YES" data-off="NO"></span> 
-                    <span class="switch-handle"></span> 
-                </label>
+                <label for="toggleButton">READ?</label>
+                <input type="button" id="toggleButton" value="NO" onclick="buttonToggle()">
             </div>
             <button class="add-button" style="vertical-align:middle" type="submit"><span>ADD BOOK</span></button>
         </div>
