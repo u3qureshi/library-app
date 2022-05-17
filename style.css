@@ -190,6 +190,7 @@ body {
     transition: all 0.3s;
     cursor: pointer;
     margin: 5px;
+    margin-bottom: 1rem;
 }
 
 .add-button span {
@@ -224,8 +225,11 @@ body {
 }
 
 table {
+    display: flex;
+    flex-direction: column;
     border: 1px solid;
-    display: absolute;
+    border-left: none;
+    border-right: none;
     width: 80vw;
     color: white;
 }
@@ -233,6 +237,36 @@ table {
 table tr th {
     color: white;
     font-weight: 500;
+}
+
+table tr {
+    display: flex;
+    justify-content: space-between;
+}
+
+.book-container .book-item {
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    background: rgb(145, 255, 255);
+    margin: 2rem;
+    padding: 1rem;
+    border: 2px ridge white;
+    border-radius: 30px;
+}
+
+.book-container .book-item button {
+    border-radius: 50%;
+    border-color: gray;
+    background: red;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.book-container .book-item button:hover {
+    transform: scale(1.12);
+    background: rgb(255, 97, 97);
 }
 
 #copyright {
