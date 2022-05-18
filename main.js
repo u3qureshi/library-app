@@ -7,6 +7,7 @@ class Book {
         this.pages = pages;
         this.isRead = isRead;
     }
+
 }
 // UI Class - Handle UI tasks
 class UI {
@@ -101,12 +102,12 @@ class Store {
         localStorage.setItem('books', JSON.stringify(books));
     }
 
-    static removeBook(bookTitle) {
+    static removeBook(bookTitle, bookAuthor) {
 
         const books = Store.getBooks();
 
         books.forEach((book, index) => {
-            if (book.bookTitle === bookTitle) {
+            if (book.bookTitle === bookTitle && book.bookAuthor === bookAuthor) {
                 books.splice(index, 1);
             }
         });
@@ -159,7 +160,9 @@ document.querySelector('.book-container').addEventListener('click', e => {
     UI.deleteBookFromList(e.target);
 
     if (e.target.classList.contains('delete-button')) {
-        Store.removeBook(e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText);
+        let title = e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
+        let author = e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
+        Store.removeBook(title, author);
         //Remove book alert
         UI.displayAlert('Book removed', 'success');
     }
@@ -187,8 +190,28 @@ function isNumeric(n) {
 
 //Read button update 
 document.querySelector('.book-container').addEventListener('click', e => {
-    if (e.target.classList.contains('read-button')) {
+    let title = e.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
+    let author = e.target.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
 
+    if (e.target.classList.contains('read-button')) {
+        let booksArray = Store.getBooks();
+
+        booksArray.forEach(bookObject => {
+            if (title === bookObject.bookTitle && author === bookObject.bookAuthor) {
+                if (bookObject.isRead == "Read: ✔") {
+                    bookObject.isRead = "Read: ✘";
+
+                } else if (bookObject.isRead == "Read: ✘") {
+                    bookObject.isRead = "Read: ✔";
+                }
+
+                console.log(bookObject.isRead)
+            }
+        });
+        //update local storage with the new booksArray of book objects
+        localStorage.setItem('books', JSON.stringify(booksArray));
+        //refresh page with updated read boolean
+        location.reload();
     }
 
 });

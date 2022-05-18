@@ -294,14 +294,21 @@ table tr {
     background: rgba(0, 97, 97, 0.411);
 }
 
+.book-container .book-item .delete-button {
+    background: red;
+}
+
+.book-container .book-item .delete-button:hover {
+    background: rgb(255, 89, 0);
+}
+
 #copyright {
-    position: fixed;
+    position: relative;
     text-align: left;
-    bottom: 0px;
+    bottom: 0;
+    left: 0;
     width: 100%;
     font-size: 0.7rem;
-    margin-bottom: 7px;
-    margin-left: 10px;
     color: white;
 }
 
