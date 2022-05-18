@@ -151,6 +151,7 @@ document.querySelector('.book-form').addEventListener('submit', (e) => {
 
         UI.displayAlert('Success! Book added', 'success');
 
+        //refresh page to location
     }
 
 });
