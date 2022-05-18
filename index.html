@@ -17,23 +17,24 @@
         <h1>My<span>Library</span></h1>
     </div>
     <form class="book-form">
+        <div class="alert">asdf</div>
         <div class="card">
             <h3 main-subtitle>Add New Book</h3>
             <div class="card-group">
                 <label for="book-title"><span>*</span>Book Title</label>
-                <input type="text" name="book-title" id="book-title" required>
+                <input type="text" name="book-title" id="book-title">
             </div>
             <div class="card-group">
                 <label for="book-author"><span>*</span>Book Author</label>
-                <input type="text" name="book-author" id="book-author" required>
+                <input type="text" name="book-author" id="book-author">
             </div>
             <div class="card-group">
                 <label for="book-pages"><span>*</span>Number of Pages</label>
-                <input type="number" min="1" max="50000" maxlength="5" name="book-pages" id="book-pages" required>
+                <input type="number" min="1" max="50000" maxlength="5" name="book-pages" id="book-pages">
             </div>
-            <div class="card-group toggle-group">
+            <div class="toggle-group">
                 <label for="toggleButton">READ?</label>
-                <input type="button" id="toggleButton" value="NO" onclick="buttonToggle()">
+                <input type="button" id="toggleButton" value="✘" onclick="buttonToggle()">
             </div>
             <button class="add-button" style="vertical-align:middle" type="submit"><span>ADD BOOK</span></button>
         </div>

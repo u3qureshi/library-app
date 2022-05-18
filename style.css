@@ -17,6 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
+    background: transparent;
 }
 
 .main-title img {
@@ -53,7 +54,7 @@ body {
     padding: 0.3rem;
     border: 1px solid blue;
     margin-top: 0.2rem;
-    border-radius: 3%;
+    border-radius: 10px;
 }
 
 .toggle-group {
@@ -183,6 +184,7 @@ body {
     border-radius: 5%;
     background-color: darkblue;
     border: 2px solid white;
+    border-radius: 10px;
     color: white;
     text-align: center;
     padding: 10px;
@@ -224,6 +226,29 @@ body {
     right: 0;
 }
 
+.toggle-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.toggle-group input {
+    margin-left: 20px;
+    background: red;
+    color: black;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.toggle-group input:hover {
+    transform: scale(1.2);
+    transition: all 0.2s;
+    border: 1px solid white;
+    color: white;
+}
+
 table {
     display: flex;
     flex-direction: column;
@@ -258,7 +283,7 @@ table tr {
 .book-container .book-item button {
     border-radius: 50%;
     border-color: gray;
-    background: red;
+    background: rgba(1, 1, 100, 0.635);
     color: white;
     cursor: pointer;
     transition: all 0.3s;
@@ -266,7 +291,7 @@ table tr {
 
 .book-container .book-item button:hover {
     transform: scale(1.12);
-    background: rgb(255, 97, 97);
+    background: rgba(0, 97, 97, 0.411);
 }
 
 #copyright {
@@ -294,4 +319,12 @@ table tr {
     color: lightyellow;
     transition: 0.5s;
     transform: scale(1.4);
+}
+
+.alert {
+    background: red;
+    padding: 1rem;
+    border-radius: 10px;
+    color: white;
+    display: none;
 }
