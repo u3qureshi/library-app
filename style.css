@@ -19,6 +19,9 @@ html {
     align-content: center;
     background: transparent;
 }
+body {
+    background: transparent;
+}
 
 .main-title img {
     width: 5rem;
